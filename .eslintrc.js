@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier'],
+  extends: ['airbnb', 'prettier', 'plugin:@typescript-eslint/eslint-recommended', 'plugin:@typescript-eslint/recommended'],
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -12,16 +12,18 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  parser: 'babel-eslint',
-  plugins: ['react', 'react-hooks'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['react', 'react-hooks', '@typescript-eslint'],
   rules: {
     'react/jsx-filename-extension': [
       'error',
       { extensions: ['.js', '.jsx', '.tsx'] },
     ],
-    'import/no-unresolved': 'off',
     'import/extensions': ['error', 'never', { svg: 'always' }],
+    'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
     'import/order': 'off',
     'global-require': 'off',
-  }
+    'no-use-before-define': 'off',
+  },
 }
