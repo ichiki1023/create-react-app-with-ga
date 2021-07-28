@@ -4,7 +4,7 @@ const useDocumentTitle = (title: string, retainOnUnmount = false): void => {
   const defaultTitle = useRef(document.title)
 
   useEffect(() => {
-    document.title = `Service Name | ${title}`
+    document.title = `${title} | Service Name`
   }, [title])
 
   useEffect(
