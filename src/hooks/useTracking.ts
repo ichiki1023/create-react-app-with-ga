@@ -17,7 +17,6 @@ const initializeGA = (measurementId: string): void => {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '${measurementId}');
   `
   document.body.appendChild(setupScript)
 }
@@ -44,7 +43,10 @@ const useTracking = (
 
   useEffect(() => {
     if (!window.gtag || !trackingId) return
-    window.gtag('config', trackingId, { page_path: location.pathname })
+    window.gtag('config', trackingId, {
+      page_path: location.pathname,
+      send_page_view: false,
+    })
   }, [location]) // eslint-disable-line react-hooks/exhaustive-deps
 }
 
